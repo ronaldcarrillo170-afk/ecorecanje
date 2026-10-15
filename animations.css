@@ -1,0 +1,51 @@
+/* Animaciones y microinteracciones */
+@keyframes glowPulse{0%{box-shadow:0 0 6px rgba(0,255,122,0.08)}50%{box-shadow:0 0 18px rgba(0,255,122,0.14)}100%{box-shadow:0 0 6px rgba(0,255,122,0.08)}}
+.step{transition:transform .36s cubic-bezier(.2,.9,.2,1),box-shadow .36s,opacity .3s}
+.step:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 46px rgba(0,0,0,0.5)}
+.btn{transition:transform .18s ease,box-shadow .18s ease}
+.btn:active{transform:translateY(2px)}
+.logo{animation:glowPulse 3.6s ease-in-out infinite}
+/* Canvas particles */
+.particle{position:absolute;border-radius:50%;pointer-events:none}
+/* efectos al reciclar */
+.recycle-anim{position:fixed;left:50%;top:30%;transform:translateX(-50%);z-index:9999;pointer-events:none;text-align:center}
+.recycle-anim .badge{display:inline-block;padding:16px 28px;border-radius:20px;background:linear-gradient(90deg,#00ff7a,#17a06b);color:#042b21;font-weight:900;font-size:22px;box-shadow:0 10px 30px rgba(0,255,122,0.12),0 4px 10px rgba(0,0,0,0.4);animation:pop .9s cubic-bezier(.2,.9,.2,1)}
+@keyframes pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.03);opacity:1}100%{transform:scale(1);opacity:1}}
+.neo-glow{box-shadow:0 0 30px rgba(0,255,122,0.22),0 0 80px rgba(0,255,122,0.08) inset}
+.particles-wrap{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:998}
+.particle-mini{width:8px;height:8px;border-radius:50%;background:radial-gradient(circle,#9bffbf,#1cae63);position:absolute;opacity:0.9;filter:blur(0.6px);transform:translate3d(0,0,0);animation:floatUp 1200ms linear forwards}
+@keyframes floatUp{0%{transform:translateY(0) scale(.6);opacity:1}100%{transform:translateY(-160px) scale(1);opacity:0}}
+/* hero cycle entrance */
+.steps{opacity:0;transform:translateY(10px);transition:opacity .8s ease,transform .8s ease}
+.steps.show{opacity:1;transform:none}
+/* progress bar */
+.progress span{display:block;height:10px;border-radius:10px;background:linear-gradient(90deg,#00ff7a,#1cae63);transition:width .8s cubic-bezier(.2,.9,.2,1)}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at top,rgba(16,214,110,0.03),transparent 48%);pointer-events:none;z-index:0}
+main,aside,.landing,section,#content,#app{position:relative;z-index:1}
+.card,.login-card,.mini,.nav,.btn,.slot,.reward,.rank,.stat{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+@keyframes fadeUp{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
+.card,.login-card,.mini,.slot,.reward,.rank,.stat{animation:fadeUp .45s ease both}
+
+/* botón ripple */
+.btn{position:relative;overflow:hidden}
+.ripple{position:absolute;border-radius:50%;transform:translate(-50%,-50%) scale(0);background:rgba(255,255,255,0.12);pointer-events:none;animation:ripple .6s cubic-bezier(.2,.9,.2,1)}
+@keyframes ripple{to{transform:translate(-50%,-50%) scale(6);opacity:0}}
+
+/* tarjeta hover con brillo neon */
+.card{transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .28s}
+.card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,0.5),0 0 40px rgba(0,255,122,0.06) inset}
+
+/* nav items */
+.nav{transition:transform .2s ease,background .2s ease; border-radius:10px; padding:8px 10px}
+.nav.active{background:linear-gradient(90deg,#072e24,#0b5b3f);box-shadow:0 6px 18px rgba(0,0,0,0.45)}
+
+/* login modal animation */
+.login-card{transition:transform .5s cubic-bezier(.2,.9,.2,1),opacity .4s;transform-origin:center;opacity:1}
+.login.hidden .login-card{transform:scale(.96);opacity:0}
+
+/* mini particle (reuse) */
+.particle-mini{will-change:transform,opacity}
+
+/* subtle float for avatars */
+.avatar{transition:transform .4s ease,box-shadow .4s}
+.avatar:hover{transform:translateY(-6px) scale(1.04);box-shadow:0 18px 40px rgba(0,0,0,0.5)}
